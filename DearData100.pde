@@ -78,7 +78,7 @@ void drawRound(TableRow row) {
 
 // 0 kills = small circle, 5 kills (ace) = big circle
 float roundSize(int kills) {
-  return 8 + kills * 4;
+  return 12 + kills * 4;
 }
 
 // Writes the map name at the start of each match's row
