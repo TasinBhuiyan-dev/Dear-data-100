@@ -8,7 +8,7 @@
 
 Table rounds;
 
-int cell = 34;       // horizontal space for each round
+int cell = 30;       // horizontal space for each round (28 rounds must fit)
 int rowGap = 46;     // vertical space between matches
 int marginX = 140;
 int marginY = 110;
@@ -112,12 +112,18 @@ float percentTraded() {
   return 100.0 * sumColumn("got_traded") / deaths;
 }
 
+// How many rounds did my team win?
+int countRoundsWon() {
+  return sumColumn("round_won");
+}
+
 void drawSummary() {
   fill(255);
   noStroke();
   textAlign(LEFT, BOTTOM);
   textSize(14);
   text("Rounds: " + rounds.getRowCount()
+    + "    Won: " + countRoundsWon()
     + "    Kills: " + sumColumn("kills")
     + "    Trades won: " + sumColumn("trades_won")
     + "    Deaths: " + sumColumn("died")
